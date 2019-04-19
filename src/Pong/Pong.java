@@ -67,7 +67,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
                 
                 
 		Graphics graphToBack = back.createGraphics();
-                
+		graphToBack.setFont(new Font("Calibri", Font.BOLD, 14));        
                 
 
 		ball.moveAndDraw(graphToBack);
@@ -82,6 +82,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			//ball.setYS(0);
                         rightScore++;
                         ball.setXS(-ball.getXS());
+                        //graphToBack.drawString("Right Score: "+rightScore, 350, 20);
+                        /*graphToBack.setColor(Color.white);
+                        graphToBack.fillRect(350,0,100,50);
+                        graphToBack.setColor(Color.black);*/
 		}
                 
                 if(ball.getX()>=763){
@@ -90,6 +94,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
                     //ball.setYS(0);
                     leftScore++;
                     ball.setXS(-ball.getXS());
+                    //graphToBack.drawString("Left Score: "+leftScore, 353, 40);
+                    /*graphToBack.setColor(Color.white);
+                    graphToBack.fillRect(350,0,100,50);
+                    graphToBack.setColor(Color.black);*/
 
                 }
 
@@ -144,21 +152,13 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 
 
-
-
-
-
-
-
-                graphToBack.setFont(new Font("Calibri", Font.BOLD, 14));
-                graphToBack.drawString("Right Score: "+rightScore, 350, 20);
-                graphToBack.drawString("Left Score: "+leftScore, 353, 40);
-                graphToBack.setColor(Color.white);
-                graphToBack.fillRect(350,0,100,50);
-                graphToBack.setColor(Color.black);
-
-
-		
+		graphToBack.drawString("Right Score: "+rightScore, 350, 20);
+		graphToBack.drawString("Left Score: "+leftScore, 353, 40);
+		graphToBack.setColor(Color.white);
+        graphToBack.fillRect(350,0,100,50);
+        graphToBack.setColor(Color.black);
+        graphToBack.drawString("Right Score: "+rightScore, 350, 20);
+		graphToBack.drawString("Left Score: "+leftScore, 353, 40);
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
