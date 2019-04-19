@@ -7,7 +7,7 @@ package Pong;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Ball extends Block
+public class Ball extends Block implements Collidable
 {
 	private int xSpeed;
 	private int ySpeed;
@@ -87,7 +87,45 @@ public boolean equals(Ball obj)
 
 	return false;
     }   
+        /*public boolean didCollideLeft(Block obj){
+            if(getX() == (obj.getX()+obj.getWidth())){
+                if(getY()+super.getHeight()>obj.getY() && getY()<obj.getY()+obj.getHeight()){
+                    return true;
+                }
+            }
+            return false;
+        }*/
 
+        public boolean didCollideLeft(Block obj){
+            return getX() <= obj.getX()+obj.getWidth()+Math.abs(getXS());
+        }
+        
+        public boolean didCollideRight(Block obj){
+            return getX()+super.getWidth()+Math.abs(getXS()) >= obj.getX();
+        }
+
+        /*public boolean didCollideRight(Block obj){
+            if((getX()+super.getWidth()) == obj.getX()){
+                if(getY()+super.getHeight()>obj.getY() && getY()<obj.getY()+obj.getHeight()){
+                    return true;
+                }
+            }
+            return false;
+        }*/
+
+        public boolean didCollideTop(Block obj){
+            if(getY()+super.getHeight()>obj.getY()){
+                return true;
+            }
+            return false;
+        }
+    
+        public boolean didCollideBottom(Block obj){
+            if(getY()<obj.getY()+obj.getHeight()){
+                return true;
+            }
+            return false;
+        }
    //add the get methods
 
    //add a toString() method
